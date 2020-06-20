@@ -1,0 +1,13 @@
+[package]
+name = "traits"
+version = "0.1.0"
+authors = ["Sam Flomenberg <sam.flomenberg@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "gui"
+path = "src/lib.rs"
+
+[[bin]]
+name = "client"
+path = "src/main.rs"
