@@ -11,12 +11,14 @@ fn main() {
     match ThreadPool::new(4) {
         Err(e) => println!("Error when creating ThreadPool: {:?}", e),
         Ok(pool) => {
-            for stream in listener.incoming() {
+            for stream in listener.incoming().take(2) {
                 let stream = stream.unwrap();
 
                 pool.execute(|| {
                     handle_connection(stream);
                 });
+
+                println!("Shutting down");
             }
         }
     }
